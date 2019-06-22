@@ -8,11 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../styles/styles.css">
-    
+  <link rel="stylesheet" href="../../materialize/css/materialize.min.css">
 </head>
 
 <body>
@@ -98,13 +97,14 @@
         budget: $("#budget").val().trim(),
         foodType: $("#type").val().trim()
       };
-  
       console.log(newRestaurant);
-  
-      $.post("api/places", newRestaurant,
-        function(data) {
-  
-          // Clear the form when submitting
+      // Send ajax request for new restaurants
+      $.ajax("/api/places", {
+        type: "POST",
+        data: newRestaurant
+      }).then(function(){
+        console.log("You just added a new restaurant to the list");
+        // Clear the form when submitting
           $("#name").val("");
           $("#address").val("");
           $("#zone").val("");
@@ -114,13 +114,14 @@
           $("#budget").val("");
           $("#type").val("");
         });
+      });
   
-    });
+      // $.post("api/places", newRestaurant,
+      //   function(data) {
   
-  </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
+  </script>
+  <script src="../../materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
