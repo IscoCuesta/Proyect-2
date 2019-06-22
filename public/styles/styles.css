@@ -1,3 +1,17 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+#mapid {
+  position: fixed;
+  z-index: 100 !important;
+}
+
+.container{
+position: relative;
+margin-top: 25%;
+}
+
+body {
+  background-image: url(./public/img/Back_Test.jpg);
+}

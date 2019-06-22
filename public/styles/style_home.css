@@ -1,0 +1,19 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+/* body {
+  background-color: blue;
+} */
+
+body {
+  background-image: url(/public/img/Back_Test.jpg);
+}
+
+.container {
+  background-color: white;
+  background-repeat: no-repeat;
+  /* height: 100%; */
+  width: 100%;
+  opacity: 0.9;
+}
