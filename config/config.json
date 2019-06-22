@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Santander7",
+    "password": "Pacificrimvol128",
     "database": "MuySalsa_db",
     "host": "localhost",
     "dialect": "mysql"
