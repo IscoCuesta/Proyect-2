@@ -1,4 +1,5 @@
 var db = require("../models");
+// var tableName = require("../public/js/data/tableName");
 
 module.exports = function(app) {
   // Get all examples
