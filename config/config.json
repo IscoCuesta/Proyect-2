@@ -1,14 +1,16 @@
 {
   "development": {
     "username": "root",
-    "password": "chDCV305098698_",
-    "database": "exampledb",
+
+    "password": "",
+    "database": "MuySalsa_db",
+
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "chDCV305098698_",
+    "password": null,
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
