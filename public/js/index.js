@@ -97,3 +97,38 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+// JS for Map
+console.log("WTF!!!");
+
+var mymap = L.map("mapid").setView([19.426, -99.1228881], 12);
+
+L.tileLayer(
+  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+  {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: "mapbox.streets",
+    accessToken:
+      "pk.eyJ1IjoiemVka2FoaWJha3VzaGEiLCJhIjoiY2p4NnF2dzZoMDJqYjN3cWw3Z3I3aGo3aiJ9.zeFVk9SlIdpPiPW8gxlVAw"
+  }
+).addTo(mymap);
+
+// Carousel
+$(document).ready(function(){
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  },setTimeout(autoplay, 4500));
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 7500);
+     }
+});
+
+// Select form
+
+$(document).ready(function(){
+  $('select').formSelect();
+});
