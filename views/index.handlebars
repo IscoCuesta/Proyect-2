@@ -32,7 +32,7 @@
 
         {{!-- Start card --}}
 {{#each places}}
-  <div class="card">
+  <div class="card {{this.budget}}">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="https://picsum.photos/800/400">
     </div>
@@ -65,7 +65,8 @@
 <script>
   // JS for Map
 
-var mymap = L.map("mapid").setView([19.426, -99.1228881], 12);
+{{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
+var mymap = L.map("mapid").setView([{{lon}},{{lat}}], {{zoom}});
 
 L.tileLayer(
   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
@@ -81,7 +82,7 @@ L.tileLayer(
 
 {{#each places}}
 var Pin{{this.id}} = L.marker([parseFloat({{this.lat}}), parseFloat({{this.lon}})]).addTo(mymap);
-{{!-- Pin{{this.id}}.bindPopup("<b>"+toString({{this.name}})+"</b>"); --}}
+Pin{{this.id}}.bindPopup("{{this.name}}");
 {{/each}}
 
 

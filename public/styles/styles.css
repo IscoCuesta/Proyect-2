@@ -21,3 +21,15 @@ body {
   background: rgb(214, 182, 111);
 }
 
+.barato {
+  background: lightblue;
+}
+
+.moderado {
+  background: gray;
+  }
+
+.caro {
+  background: lightcoral;
+}
+

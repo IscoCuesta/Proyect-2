@@ -16,7 +16,7 @@ module.exports = function(app) {
   // Load maps 
   app.get("/maps", function(req, res) {
     var random = [];
-    for (var i = 0; i<4; i++ ){
+    for (var i = 0; i<5; i++ ){
       var IdRand = Math.floor(Math.random()*20);
       random.push(IdRand);
     };
@@ -28,7 +28,10 @@ module.exports = function(app) {
       }
     }).then(function(dbExamples) {
       res.render("index", {
-        places: dbExamples
+        places: dbExamples,
+        lon: 19.426,
+        lat: -99.1228881,
+        zoom: 12
       });
     });
   });
@@ -36,7 +39,6 @@ module.exports = function(app) {
   // Load example page and pass in an example by id
   app.get("/maps/:place/:type?", function(req, res) {
     var APIKEY = process.env.mapbox_id;
-    // var APIKEY = "pk.eyJ1IjoiaXNjb2N1ZXN0YSIsImEiOiJjanV4Y245YmwwbHJiM3lsNmhyeHc1MmV2In0.BsdcljLRiFE9seVq7JuZrQ";
     var searchPlace = req.params.place;
     console.log(req.params);
     if (req.params.type !== null){
@@ -48,11 +50,18 @@ module.exports = function(app) {
     console.log("querry ajax",queryURL);
     axios.get(queryURL).then(function(response) {
 
-        // db.Example.findAll({}).then(function(dbExample) {
-        //   res.render("example", {
-        //     example: dbExample
-        //   });
-        // });
+      db.Places.findAll(searchType).then(function(dbExample) {
+
+
+
+
+
+        res.render("index", {
+          places: dbExample,
+          lon: {coord: response.data.features[0].center[0]},
+          lat: {coord: response.data.features[0].center[1]}
+        });
+      });
         console.log(response.data);
         res.json(response.data.features[0].center);
 
