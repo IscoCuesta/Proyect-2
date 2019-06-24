@@ -5,10 +5,31 @@ var axios = require('axios');
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Places.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
+      });
+    });
+  });
+  // Load maps 
+  app.get("/maps", function(req, res) {
+    var random = [];
+    for (var i = 0; i<4; i++ ){
+      var IdRand = Math.floor(Math.random()*20);
+      random.push(IdRand);
+    }
+    db.Places.findAll({
+      where: {
+        id: {
+          [Op.and]: random
+        }
+      }
+    }).then(function(dbExamples) {
+
+      res.render("index", {
+        msg: "Welcome!",
+        Places: dbExamples
       });
     });
   });

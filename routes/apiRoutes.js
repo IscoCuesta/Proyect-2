@@ -3,15 +3,19 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/RedPill/all", function(req, res) {
+    db.Place.findAll({}).then(function(dbExamples) {
+      res.render("info", {
+        msg: "Welcome!",
+        Places: dbExamples
+      });
       res.json(dbExamples);
     });
   });
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
+  app.post("/RedPill/new", function(req, res) {
+    db.Place.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
