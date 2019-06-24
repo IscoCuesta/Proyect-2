@@ -1,3 +1,5 @@
+USE muysalsa_db;
+
 ALTER TABLE places CHANGE COLUMN createdAt createdAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
 ALTER TABLE places CHANGE COLUMN updatedAt updatedAt datetime NOT NULL DEFAULT CURRENT_TIMESTAMP;
 

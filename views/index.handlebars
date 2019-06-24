@@ -1,6 +1,6 @@
 <div id="home">
 
-  <div id="mapid" style="height: 17rem; width: 80%; align-self: center; margin-left: 5%"></div>
+  <div id="mapid" style="height: 25%; width: 100%; align-self: center"></div>
 <br>
   <div class="container">
     <div class="row">
@@ -38,7 +38,8 @@
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{this.name}}<i class="material-icons right">more_vert</i></span>
-        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">map</i></a>
+      <p>{{this.address}}</p>
+        <a class="btn-floating btn-large waves-effect waves-light red" href={{this.url}}><i class="material-icons">map</i></a>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right">close</i></span>
@@ -60,6 +61,31 @@
     </div>
   </div>
 </div>
+
+<script>
+  // JS for Map
+
+var mymap = L.map("mapid").setView([19.426, -99.1228881], 12);
+
+L.tileLayer(
+  "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+  {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: "mapbox.streets",
+    accessToken:
+      "pk.eyJ1IjoiemVka2FoaWJha3VzaGEiLCJhIjoiY2p4NnF2dzZoMDJqYjN3cWw3Z3I3aGo3aiJ9.zeFVk9SlIdpPiPW8gxlVAw"
+  }
+).addTo(mymap);
+
+{{#each places}}
+var Pin{{this.id}} = L.marker([parseFloat({{this.lat}}), parseFloat({{this.lon}})]).addTo(mymap);
+{{!-- Pin{{this.id}}.bindPopup("<b>"+toString({{this.name}})+"</b>"); --}}
+{{/each}}
+
+
+</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>

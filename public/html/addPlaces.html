@@ -92,18 +92,18 @@
       event.preventDefault();
   
       var newRestaurant = {
-        restName: $("#name").val().trim(),
+        name: $("#name").val().trim(),
         address: $("#address").val().trim(),
-        cdmxZone: $("#zone").val().trim(),
+        zone: $("#zone").val().trim(),
         url: $("#url").val().trim(),
-        Longitude: $("#long").val().trim(),
-        Latitude: $("#lat").val().trim(),
+        lon: $("#long").val().trim(),
+        lat: $("#lat").val().trim(),
         budget: $("#budget").val().trim(),
-        foodType: $("#type").val().trim()
+        type: $("#type").val().trim()
       };
       console.log(newRestaurant);
       // Send ajax request for new restaurants
-      $.ajax("/api/places", {
+      $.ajax("/RedPill/new", {
         type: "POST",
         data: newRestaurant
       }).then(function(){
