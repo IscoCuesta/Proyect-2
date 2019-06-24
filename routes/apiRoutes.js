@@ -10,7 +10,6 @@ module.exports = function(app) {
         Places: dbExamples
       });
       res.json(dbExamples);
-
     });
   });
 
@@ -18,7 +17,6 @@ module.exports = function(app) {
   app.post("/RedPill/new", function(req, res) {
     db.Place.create(req.body).then(function(dbExample) {
       res.json(dbExample);
-
     });
   });
 
