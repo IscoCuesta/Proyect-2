@@ -1,14 +1,34 @@
 var db = require("../models");
 const keys = require("../keys");
 var axios = require('axios');
+var Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Places.findAll({}).then(function(dbExamples) {
+      res.render("info", {
+        places: dbExamples
+      });
+    });
+  });
+  // Load maps 
+  app.get("/maps", function(req, res) {
+    var random = [];
+    for (var i = 0; i<4; i++ ){
+      var IdRand = Math.floor(Math.random()*20);
+      random.push(IdRand);
+    };
+    db.Places.findAll({
+      where: {
+        id: {
+          [Op.or]: random
+        }
+      }
+    }).then(function(dbExamples) {
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        places: dbExamples
       });
     });
   });
