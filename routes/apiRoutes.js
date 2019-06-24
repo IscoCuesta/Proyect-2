@@ -10,6 +10,7 @@ module.exports = function(app) {
         Places: dbExamples
       });
       res.json(dbExamples);
+
     });
   });
 
@@ -17,11 +18,12 @@ module.exports = function(app) {
   app.post("/RedPill/new", function(req, res) {
     db.Place.create(req.body).then(function(dbExample) {
       res.json(dbExample);
+
     });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
+  app.delete("/api/places/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(
       dbExample
     ) {
