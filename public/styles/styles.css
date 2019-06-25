@@ -8,16 +8,30 @@
   z-index: 100 !important;
 }
 
-.container{
+/* .container{
 position: relative;
 margin-top: 25%;
-}
+} */
 
 body {
   background-image: url(./public/img/Back_Test.jpg);
 }
-
+/* 
 .jumbotron {
   background: rgb(214, 182, 111);
+} */
+
+.card.horizontal .card-image img {
+  border-radius: 2px 0 0 2px;
+  width: 50% !important  ;
+}
+
+.card-stacked {
+  margin-left: -25%;
+}
+
+.card-body {
+  margin-left: 2%;
+  margin-right: 2%;
 }
 

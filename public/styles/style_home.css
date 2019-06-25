@@ -17,3 +17,12 @@ body {
   width: 100%;
   opacity: 0.9;
 }
+
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/w3images/onepage_restaurant.jpg') ;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
