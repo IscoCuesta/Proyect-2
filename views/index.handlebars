@@ -35,7 +35,7 @@
 {{#each places}}
   <div class="card {{this.budget}}">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://picsum.photos/800/400">
+      <img class="activator" src={{Dishes.0.image}} >
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{this.name}}<i class="material-icons right">more_vert</i></span>
@@ -45,11 +45,12 @@
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right">close</i></span>
         <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="https://picsum.photos/500/300?random=1"{{!-- {{this.image}} --}}></a>
-    <a class="carousel-item" href="#two!"><img src="https://picsum.photos/500/300?random=2"></a>
-    <a class="carousel-item" href="#three!"><img src="https://picsum.photos/500/300?random=3"></a>
-    <a class="carousel-item" href="#four!"><img src="https://picsum.photos/500/300?random=4"></a>
-    <a class="carousel-item" href="#five!"><img src="https://picsum.photos/500/300?random=5"></a>
+          {{#each Dishes}}
+            <a class="carousel-item" ><img src={{this.image}}></a>
+            {{!-- <a class="carousel-item" ><img src={{places.Dishes}}></a>
+            <a class="carousel-item" ><img src={{places.Dishes}}></a> --}}
+            {{/each}}
+
     
   </div>
     </div>

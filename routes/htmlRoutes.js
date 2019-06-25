@@ -1,5 +1,4 @@
 var db = require("../models");
-const keys = require("../keys");
 var axios = require('axios');
 var Sequelize = require("sequelize");
 const Op = Sequelize.Op;
@@ -15,7 +14,9 @@ module.exports = function(app) {
     var random = [];
     for (var i = 0; i<5; i++ ){
       var IdRand = Math.floor(Math.random()*22);
-      random.push(IdRand);
+      if(!random.includes(IdRand)){
+        random.push(IdRand);
+      }else{i--}
     }
       
       db.Places.findAll({
@@ -23,7 +24,10 @@ module.exports = function(app) {
           id: {
             [Op.or]: random
           }
-        }
+        },
+        include: [{
+          model: db.Dishes
+        }]
       }).then(function(dbExamples) {
         res.render("index", {
           places: dbExamples,
@@ -40,11 +44,11 @@ module.exports = function(app) {
     var searchPlace = req.params.place;
     console.log(req.params);
     var searchType = {};
-    // if (req.params.type !== undefined || req.params.type !== "null"){
-    //   var searchType =  {where: { type: req.params.type }} ;
-    // }else{
-    //   var searchType = {};
-    // }
+    if (req.params.type !== undefined && req.params.type !== "null"){
+      var searchType =  {where: { type: req.params.type }} ;
+    }else{
+      var searchType = {};
+    }
     var queryURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+searchPlace+".json?proximity=-99.1228881,19.426?address="+searchPlace+"&access_token="+APIKEY;
     console.log("querry ajax",queryURL);
     axios.get(queryURL).then(function(response) {
