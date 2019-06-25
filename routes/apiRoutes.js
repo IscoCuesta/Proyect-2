@@ -4,12 +4,10 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all examples
   app.get("/RedPill/all", function(req, res) {
-    db.Place.findAll({}).then(function(dbExamples) {
+    db.Places.findAll({}).then(function(dbExamples) {
       res.render("info", {
-        msg: "Welcome!",
-        Places: dbExamples
+        places: dbExamples
       });
-      res.json(dbExamples);
     });
   });
 
@@ -22,7 +20,7 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/places/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+    db.Place.destroy({ where: { id: req.params.id } }).then(function(
       dbExample
     ) {
       res.json(dbExample);
