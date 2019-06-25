@@ -116,4 +116,17 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('select').formSelect();
+
+  $(".submit").on("click", function(){
+    var searchPlace = $("#name").val().trim();
+    // var searchtype = $("#type").val();
+    var url = "/maps/"+searchPlace;
+    $.ajax({
+      type: "GET",
+      url: url
+    }).then(function(resp){
+      console.log(resp);
+    });
+
+  });
 });

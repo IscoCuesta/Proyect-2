@@ -9,7 +9,7 @@
          <input type="text" id="name" class="form-control" required>
           <br>
           <div class="input-field col s12">
-    <select>
+    <select id="type">
       <option value="" disabled selected>Select type of food</option>
       <option value="Tacos">Tacos</option>
       <option value="Antojitos">Antojitos</option>
@@ -23,18 +23,19 @@
     </select>
     
   </div>
-   <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+
+   <button class="btn waves-effect waves-light submit" type="submit" name="action"> Submit
     <i class="material-icons right">send</i>
-  </button>
+    </button>
          <br><br>
 
         <h3>Results:</h3>
 
         {{!-- Start card --}}
 {{#each places}}
-  <div class="card">
+  <div class="card {{this.budget}}">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://picsum.photos/800/400">
+      <img class="activator" src={{Dishes.0.image}} >
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{this.name}}<i class="material-icons right">more_vert</i></span>
@@ -44,11 +45,12 @@
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right">close</i></span>
         <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="https://picsum.photos/500/300?random=1"{{!-- {{this.image}} --}}></a>
-    <a class="carousel-item" href="#two!"><img src="https://picsum.photos/500/300?random=2"></a>
-    <a class="carousel-item" href="#three!"><img src="https://picsum.photos/500/300?random=3"></a>
-    <a class="carousel-item" href="#four!"><img src="https://picsum.photos/500/300?random=4"></a>
-    <a class="carousel-item" href="#five!"><img src="https://picsum.photos/500/300?random=5"></a>
+          {{#each Dishes}}
+            <a class="carousel-item" ><img src={{this.image}}></a>
+            {{!-- <a class="carousel-item" ><img src={{places.Dishes}}></a>
+            <a class="carousel-item" ><img src={{places.Dishes}}></a> --}}
+            {{/each}}
+
     
   </div>
     </div>
@@ -65,7 +67,8 @@
 <script>
   // JS for Map
 
-var mymap = L.map("mapid").setView([19.426, -99.1228881], 12);
+{{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
+var mymap = L.map("mapid").setView([{{lon}},{{lat}}], {{zoom}});
 
 L.tileLayer(
   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
@@ -81,7 +84,7 @@ L.tileLayer(
 
 {{#each places}}
 var Pin{{this.id}} = L.marker([parseFloat({{this.lat}}), parseFloat({{this.lon}})]).addTo(mymap);
-{{!-- Pin{{this.id}}.bindPopup("<b>"+toString({{this.name}})+"</b>"); --}}
+Pin{{this.id}}.bindPopup("{{this.name}}");
 {{/each}}
 
 
