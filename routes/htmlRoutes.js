@@ -1,6 +1,7 @@
 var db = require("../models");
 var axios = require('axios');
 var Sequelize = require("sequelize");
+var path = require('path');
 const Op = Sequelize.Op;
 
 module.exports = function(app) {
@@ -98,11 +99,30 @@ module.exports = function(app) {
           ubicacion: searchPlace
         });
 
-
-      })
+      });
 
     });
 
+  });
+
+  app.get("/all", function(req, res) {
+    db.Places.findAll({}).then(function(dbExamples) {
+      res.render("info", {
+        places: dbExamples
+      });
+    });
+  });
+
+  app.get("/newdish", function(req, res) {
+    db.Places.findAll({}).then(function(dbExamples) {
+      res.render("dishes", {
+        places: dbExamples
+      });
+    });
+  });
+
+  app.get('/newplace', function(req, res) {
+    res.sendFile(path.join(__dirname + '/../public/html/addPlaces.html'));
   });
 
   // Render 404 page for any unmatched routes
