@@ -1,8 +1,9 @@
 <div id="home">
 
   <div id="mapid" style="height: 20%; width: 100%; align-self: center"></div>
-<h1 class="muySalsaText">Muy Salsa</h1>
 <br>
+<h1 class="placeText">{{ubicacion}}</h1>
+<h1 class="muySalsaText">Muy Salsa</h1>
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -38,16 +39,20 @@
       <p>{{this.address}}</p>
         <a class="btn-floating btn-large waves-effect waves-light red" href={{this.url}}><i class="material-icons">map</i></a>
     </div>
-    <div class="card-reveal">
+    <div class="card-reveal {{this.budget}}">
       <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right">close</i></span>
         <div class="carousel carousel-slider">
           {{#each Dishes}}
             <a class="carousel-item" ><img src={{this.image}}></a>
-            {{/each}} 
-        </div>
+            {{/each}}
+
+    
+  </div>
     </div>
   </div>
 {{/each}}
+
+{{!-- End card --}}
 
       </div>
     </div>
@@ -58,7 +63,7 @@
   // JS for Map
 
 {{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
-var mymap = L.map("mapid").setView([{{lon}},{{lat}}], {{zoom}});
+var mymap = L.map("mapid").setView([{{lat}},{{lon}}], {{zoom}});
 
 L.tileLayer(
   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
@@ -73,7 +78,7 @@ L.tileLayer(
 ).addTo(mymap);
 
 {{#each places}}
-var Pin{{this.id}} = L.marker([parseFloat({{this.lon}}), parseFloat({{this.lat}})]).addTo(mymap);
+var Pin{{this.id}} = L.marker([parseFloat({{this.lat}}), parseFloat({{this.lon}})]).addTo(mymap);
 Pin{{this.id}}.bindPopup("{{this.name}}");
 {{/each}}
 

@@ -119,13 +119,14 @@ $(document).ready(function(){
 
   $(".submit").on("click", function(){
     var searchPlace = $("#name").val().trim();
-    // var searchtype = $("#type").val();
-    var url = "/maps/"+searchPlace;
+    var searchtype = $("#type").val();
+    var url = "./" + searchPlace + "/" + searchtype;
+    console.log(url);
     $.ajax({
       type: "GET",
       url: url
     }).then(function(resp){
-      console.log(resp);
+      $(document.body).html(resp)
     });
 
   });
