@@ -116,6 +116,10 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('select').formSelect();
+  
+  $.ajaxPrefilter(function( options, original_Options, jqXHR ) {
+    options.async = true;
+});
 
   $(".submit").on("click", function(){
     var searchPlace = $("#name").val().trim();
@@ -126,7 +130,7 @@ $(document).ready(function(){
       type: "GET",
       url: url
     }).then(function(resp){
-      $(document.body).html(resp)
+      $(document.body).html(resp);
     });
 
   });
