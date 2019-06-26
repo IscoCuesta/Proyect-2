@@ -59,13 +59,13 @@
               </div>
 
               <div class="form-group">
-                <label for="longitude">Longitude</label>
-                <input type="text" class="form-control" id="long">
+                <label for="latitude">Latitude</label>
+                <input type="text" class="form-control" id="lat">
               </div>
 
               <div class="form-group">
-                <label for="latitude">Latitude</label>
-                <input type="text" class="form-control" id="lat">
+                <label for="longitude">Longitude</label>
+                <input type="text" class="form-control" id="long">
               </div>
 
               <div class="form-group">
@@ -78,7 +78,7 @@
                 <input type="text" class="form-control" id="type">
               </div>
 
-              <button type="submit" class="btn btn-outline-warning">Submit</button>
+              <button type="submit" class="submit-place btn btn-outline-warning">Submit</button>
             </form>
           </div>
         </div>
@@ -88,7 +88,7 @@
   </div>
   <script type="text/javascript">
   
-    $(".submit").on("click", function(event) {
+    $(".submit-place").on("click", function(event) {
       event.preventDefault();
   
       var newRestaurant = {

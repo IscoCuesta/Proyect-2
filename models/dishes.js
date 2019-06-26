@@ -2,15 +2,15 @@ module.exports = function(sequelize, DataTypes) {
   var Dishes = sequelize.define("Dishes", {
     dish: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        allowNull: false,
         len: [1, 100]
       }
     },
     image: {
       type: DataTypes.TEXT,
+      allowNull: false,
       validate: {
-        allowNull: false,
         len: [1, 100]
       }
     }
