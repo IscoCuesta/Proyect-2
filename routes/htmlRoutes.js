@@ -87,7 +87,7 @@ module.exports = function(app) {
         var responseArr = [];
 
 
-        for(var i =0; i<arrByDist.length; i++){
+        for(var i =0; i<arrByDist.length && i<5; i++){
           responseArr[i] = arrByDist[i].place;
         };
         res.render("place", {
