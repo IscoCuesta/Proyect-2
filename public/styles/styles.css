@@ -8,8 +8,21 @@
   z-index: 100 !important;
 }
 
-body {
-  background-image: url(./public/img/Back_Test.jpg);
+.muySalsaText {
+  position: fixed;
+  z-index: 101 !important;
+  right: 2rem;
+  color: rgb(255, 255, 255) 
+}
+.placeText {
+  position: fixed;
+  z-index: 101 !important;
+  left: 2rem;
+  color: rgb(205, 218, 162) 
+}
+
+.container {
+  padding-top: 41% !important 
 }
 
 .jumbotron {

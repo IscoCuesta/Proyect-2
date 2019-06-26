@@ -13,7 +13,7 @@ module.exports = function(app) {
   app.get("/maps", function(req, res) {
     var random = [];
     for (var i = 0; i<5; i++ ){
-      var IdRand = Math.floor(Math.random()*22);
+      var IdRand = Math.floor(Math.random()*20)+1;
       if(!random.includes(IdRand)){
         random.push(IdRand);
       }else{i--}
@@ -42,21 +42,26 @@ module.exports = function(app) {
   app.get("/maps/:place/:type?", function(req, res) {
     var APIKEY = process.env.mapbox_id;
     var searchPlace = req.params.place;
-    console.log(req.params);
+
     var searchType = {};
     if (req.params.type !== undefined && req.params.type !== "null"){
-      var searchType =  {where: { type: req.params.type }} ;
+      var searchType =  {where: { type: req.params.type },
+      include: [{
+        model: db.Dishes
+      }]} ;
     }else{
-      var searchType = {};
+      var searchType = {
+        include: [{
+          model: db.Dishes
+        }]};
     }
     var queryURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+searchPlace+".json?proximity=-99.1228881,19.426?address="+searchPlace+"&access_token="+APIKEY;
-    console.log("querry ajax",queryURL);
+
     axios.get(queryURL).then(function(response) {
       var searchLat = response.data.features[0].center[1];
       var searchLon = response.data.features[0].center[0];
-
+      console.log(searchType);
       db.Places.findAll(searchType).then(function(dbExample) {
-        console.log(searchLon, dbExample[0].lon);
         var arrByDist = [];
 
         for(var i =0; i<dbExample.length; i++){
@@ -80,23 +85,21 @@ module.exports = function(app) {
         arrByDist.sort( compare );
 
         var responseArr = [];
-        for(var i =0; i<=7; i++){
+
+
+        for(var i =0; i<arrByDist.length; i++){
           responseArr[i] = arrByDist[i].place;
         };
-        res.render("index", {
+        res.render("place", {
           places: responseArr,
-          lon: 19.426,
-          lat: -99.1228881,
-          zoom: 12
+          lon: searchLon,
+          lat: searchLat,
+          zoom: 15,
+          ubicacion: searchPlace
         });
 
 
       })
-        console.log("")
-
-      
-        // console.log(response.data);
-        // res.json(response.data.features[0].center);
 
     });
 
