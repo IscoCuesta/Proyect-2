@@ -2,12 +2,11 @@
   line-height: 2.5;
 }
 
-/* body {
-  background-color: blue;
-} */
-
-body {
-  background-image: url(/public/img/Back_Test.jpg);
+body, html {
+  background-position: center;
+  background-size: cover;
+  font-family: sans-serif;
+  zoom: 85%;
 }
 
 .container {
@@ -16,6 +15,8 @@ body {
   /* height: 100%; */
   width: 100%;
   opacity: 0.9;
+  margin: 30px auto;
+  max-width: -webkit-fill-available;
 }
 
 body,h1,h5 {font-family: "Raleway", sans-serif}
