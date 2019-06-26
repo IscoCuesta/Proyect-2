@@ -1,0 +1,76 @@
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-center">Dish Information</h1>
+      <hr>
+      <p class="text-center">Enter the information about the dish</p>
+
+      <div class="text-center">
+        <a href="/place"><button type="button" class="btn btn-lg btn-info">Go to Restaurant list</button></a>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-header">Information of the dish
+          </div>
+
+          <div class="card-body">
+            <form role="form">
+
+              <div class="form-group">
+                <label for="name">Name of the dish</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+
+              <div class="form-group">
+                <label for="image-url">Paste dish image url</label>
+                <input type="text" class="form-control" id="image-url">
+              </div>
+
+              <div class="form-group">
+                <label for="place"> What place does this dish belong to? </label>
+                <select class="browser-default" id="place-id">
+                  {{#each places}}
+                    <option value={{this.id}}>{{this.name}}</option>
+                  {{/each}}
+                </select>
+              </div>
+
+              <button type="submit" class="submitDish btn btn-outline-warning">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script type="text/javascript">
+
+    $(".submitDish").on("click", function (event) {
+      event.preventDefault();
+
+      var newDish = {
+        dish: $("#name").val().trim(),
+        image: $("#image-url").val().trim(),
+        PlaceId: $("#place-id").val().trim(),
+      };
+      console.log(newDish);
+      // Send ajax request for new restaurants
+      $.ajax("/RedPill/dish", {
+        type: "POST",
+        data: newDish
+      }).then(function () {
+        console.log("You just added a new dish to this place");
+        // Clear the form when submitting
+        $("#name").val("");
+        $("#image-url").val("");
+        $("#place-id").val("");
+      });
+    });
+
+  </script>

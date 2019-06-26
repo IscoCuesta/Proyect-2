@@ -1,11 +1,14 @@
 var db = require("../models");
 const keys = require("../keys");
 var axios = require('axios');
+var Sequelize = require("sequelize");
+var path = require('path');
+const Op = Sequelize.Op;
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Places.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
@@ -36,11 +39,20 @@ module.exports = function(app) {
         console.log(response.data);
         res.json(response.data.features[0].center);
 
-
-  
-
     });
 
+  });
+
+  app.get('/newplace', function(req, res) {
+    res.sendFile(path.join(__dirname + '/../public/html/addPlaces.html'));
+  });
+
+  app.get("/newdish", function(req, res) {
+    db.Places.findAll({}).then(function(dbExamples) {
+      res.render("dishes", {
+        places: dbExamples
+      });
+    });
   });
 
   // Render 404 page for any unmatched routes
