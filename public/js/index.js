@@ -120,7 +120,7 @@ $(document).ready(function(){
   $(".submit").on("click", function(){
     var searchPlace = $("#name").val().trim();
     var searchtype = $("#type").val();
-    var url = "./" + searchPlace + "/" + searchtype;
+    var url = "/maps/" + searchPlace + "/" + searchtype;
     console.log(url);
     $.ajax({
       type: "GET",
