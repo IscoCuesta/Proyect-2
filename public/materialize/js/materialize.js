@@ -1,4 +1,3 @@
-
 /*!
  * Materialize v1.0.0 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
@@ -4772,7 +4771,6 @@ $jscomp.polyfill = function (e, r, p, m) {
     M.initializeJqueryWrapper(Tooltip, 'tooltip', 'M_Tooltip');
   }
 })(cash, M.anime);
-<<<<<<< HEAD
 ; /*!
   * Waves v0.6.4
   * http://fian.my.id/Waves
@@ -4780,15 +4778,6 @@ $jscomp.polyfill = function (e, r, p, m) {
   * Copyright 2014 Alfiana E. Sibuea and other contributors
   * Released under the MIT license
   * https://github.com/fians/Waves/blob/master/LICENSE
-=======
-; /*!
-  * Waves v0.6.4
-  * http://fian.my.id/Waves
-  *
-  * Copyright 2014 Alfiana E. Sibuea and other contributors
-  * Released under the MIT license
-  * https://github.com/fians/Waves/blob/master/LICENSE
->>>>>>> master
   */
 
 ;(function (window) {
@@ -4998,7 +4987,6 @@ $jscomp.polyfill = function (e, r, p, m) {
     }
   };
 
-<<<<<<< HEAD
   /**
    * Disable mousedown event for 500ms during and after touch
    */
@@ -5006,15 +4994,6 @@ $jscomp.polyfill = function (e, r, p, m) {
     /* uses an integer rather than bool so there's no issues with
      * needing to clear timeouts if another touch event occurred
      * within the 500ms. Cannot mouseup between touchstart and
-=======
-  /**
-   * Disable mousedown event for 500ms during and after touch
-   */
-  var TouchHandler = {
-    /* uses an integer rather than bool so there's no issues with
-     * needing to clear timeouts if another touch event occurred
-     * within the 500ms. Cannot mouseup between touchstart and
->>>>>>> master
      * touchend, nor in the 500ms after touchend. */
     touches: 0,
     allowEvent: function (e) {
@@ -5039,15 +5018,9 @@ $jscomp.polyfill = function (e, r, p, m) {
     }
   };
 
-<<<<<<< HEAD
   /**
    * Delegated click handler for .waves-effect element.
    * returns null when .waves-effect element not in "click tree"
-=======
-  /**
-   * Delegated click handler for .waves-effect element.
-   * returns null when .waves-effect element not in "click tree"
->>>>>>> master
    */
   function getWavesEffectElement(e) {
     if (TouchHandler.allowEvent(e) === false) {
@@ -5067,13 +5040,8 @@ $jscomp.polyfill = function (e, r, p, m) {
     return element;
   }
 
-<<<<<<< HEAD
   /**
    * Bubble the click and show effect if .waves-effect elem was found
-=======
-  /**
-   * Bubble the click and show effect if .waves-effect elem was found
->>>>>>> master
    */
   function showEffect(e) {
     var element = getWavesEffectElement(e);
@@ -5109,19 +5077,11 @@ $jscomp.polyfill = function (e, r, p, m) {
     document.body.addEventListener('mousedown', showEffect, false);
   };
 
-<<<<<<< HEAD
   /**
    * Attach Waves to an input element (or any element which doesn't
    * bubble mouseup/mousedown events).
    *   Intended to be used with dynamically loaded forms/inputs, or
    * where the user doesn't want a delegated click handler.
-=======
-  /**
-   * Attach Waves to an input element (or any element which doesn't
-   * bubble mouseup/mousedown events).
-   *   Intended to be used with dynamically loaded forms/inputs, or
-   * where the user doesn't want a delegated click handler.
->>>>>>> master
    */
   Waves.attach = function (element) {
     //FUTURE: automatically add waves classes and allow users

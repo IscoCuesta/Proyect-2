@@ -21,7 +21,11 @@
       <h1 class="text-center">Restaurant Information</h1>
       <hr>
       <p class="text-center">Introduce the information about the specific place or restaurant</p>
-      <br>
+
+      <div class="text-center">
+        <a href="/place"><button type="button" class="btn btn-lg btn-info">Go to Restaurant list</button></a>
+      </div>
+
     </div>
 
     <div class="row">
@@ -88,18 +92,18 @@
       event.preventDefault();
   
       var newRestaurant = {
-        restName: $("#name").val().trim(),
+        name: $("#name").val().trim(),
         address: $("#address").val().trim(),
-        cdmxZone: $("#zone").val().trim(),
+        zone: $("#zone").val().trim(),
         url: $("#url").val().trim(),
-        Longitude: $("#long").val().trim(),
-        Latitude: $("#lat").val().trim(),
+        lon: $("#long").val().trim(),
+        lat: $("#lat").val().trim(),
         budget: $("#budget").val().trim(),
-        foodType: $("#type").val().trim()
+        type: $("#type").val().trim()
       };
       console.log(newRestaurant);
       // Send ajax request for new restaurants
-      $.ajax("/api/places", {
+      $.ajax("/RedPill/new", {
         type: "POST",
         data: newRestaurant
       }).then(function(){

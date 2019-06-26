@@ -97,3 +97,37 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+// Carousel
+$(document).ready(function(){
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true,
+    indicators: true
+  },setTimeout(autoplay, 4500));
+  function autoplay() {
+    $('.carousel').carousel('next');
+    setTimeout(autoplay, 7500);
+     }
+});
+
+// Select form
+
+$(document).ready(function(){
+  $('select').formSelect();
+
+  $(".submit").on("click", function(){
+    var searchPlace = $("#name").val().trim();
+    var searchtype = $("#type").val();
+    var url = "/maps/" + searchPlace + "/" + searchtype;
+    console.log(url);
+    $.ajax({
+      type: "GET",
+      url: url
+    }).then(function(resp){
+      $(document.body).html(resp)
+    });
+
+  });
+});

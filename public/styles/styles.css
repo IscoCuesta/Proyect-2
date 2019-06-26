@@ -2,7 +2,42 @@
   line-height: 2.5;
 }
 
+
+#mapid {
+  position: fixed;
+  z-index: 100 !important;
+}
+
+.muySalsaText {
+  position: fixed;
+  z-index: 101 !important;
+  right: 2rem;
+  color: rgb(255, 255, 255) 
+}
+.placeText {
+  position: fixed;
+  z-index: 101 !important;
+  left: 2rem;
+  color: rgb(205, 218, 162) 
+}
+
+.container {
+  padding-top: 41% !important 
+}
+
 .jumbotron {
   background: rgb(214, 182, 111);
+}
+
+.barato {
+  background: lightblue;
+}
+
+.moderado {
+  background: gray;
+  }
+
+.caro {
+  background: lightcoral;
 }
 

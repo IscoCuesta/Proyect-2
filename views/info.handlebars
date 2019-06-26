@@ -1,0 +1,51 @@
+<div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">Restaurants</h1>
+            <hr>
+            <p class="text-center">List of all the Restaurants</p>
+            <br>
+
+            <div class="text-center">
+                <a href="/list"><button type="button" class="btn btn-lg btn-info">Add a new place</button></a>
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Restaurants list</h4>
+                </div>
+                <div class="panel-body" id="tableSection">
+                    <table style="width:100%">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th> 
+                            <th>Zone</th>
+                            <th>URL</th>
+                            <th>Longitude</th> 
+                            <th>Latitude</th>
+                            <th>Budget</th>
+                            <th>Type of food</th> 
+                        </tr>
+                        {{#each places}}
+                            <tr>
+                                <td>{{this.id}}</td>
+                                <td>{{this.name}}</td>
+                                <td>{{this.address}}</td> 
+                                <td>{{this.zone}}</td>
+                                <td>{{this.url}}</td>
+                                <td>{{this.lon}}</td> 
+                                <td>{{this.lat}}</td>
+                                <td>{{this.budget}}</td>
+                                <td>{{this.type}}</td> 
+                            </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
