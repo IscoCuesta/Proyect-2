@@ -109,9 +109,10 @@ module.exports = function(app) {
   // Load example page and pass in an example by id
   app.post("/location/:lat/:lng", function(req, res) {
     console.log("-----------------------hit location//")
-    var searchType = {};
-    if (req.params.type !== undefined && req.params.type !== "null"){
-      var searchType =  {where: { type: req.params.type },
+    var searchType = req.body.type;
+    console.log(searchType, "search type");
+    if (searchType !== "" && searchType !== "null"){
+      var searchType =  {where: { type: req.body.type },
       include: [{
         model: db.Dishes
       }]} ;
@@ -121,8 +122,8 @@ module.exports = function(app) {
           model: db.Dishes
         }]};
       }
-      var searchLon = req.params.lng;
-      var searchLat = req.params.lat;
+      var searchLon = req.body.lng;
+      var searchLat = req.body.lat;
       db.Places.findAll(searchType).then(function(dbExample) {
         var arrByDist = [];
 
