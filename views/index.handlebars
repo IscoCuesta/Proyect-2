@@ -72,8 +72,9 @@ function onLocationFound(e) {
     var radius = e.accuracy;
     mylocation = e.latlng;
 
-    L.marker(e.latlng, {
-    color: 'red'}).addTo(mymap)
+    L.circle(e.latlng, {
+    color: 'red',
+    fillColor: '#f03', fillOpacity: 0.5, radius: 50}).addTo(mymap)
         .bindPopup("You are here").openPopup();
 };
 function onLocationError(e) {
@@ -107,18 +108,24 @@ $(document).ready(function(){
   $(".location").on("click", function(event){
     event.preventDefault();
     console.log("location click", mylocation)
-    var searchtype = $("#type").val();
+
     var baseURL = "http://localhost:3000";
-    var url = "/location";
-    console.log(searchtype);
+    var url = "/location/" + mylocation.lat + "/" + mylocation.lng;
+
+    {{!-- var baseURL = "https://muysalsa.herokuapp.com"; --}}
+    {{!-- var url = "/location"; --}}
+    console.log(url);
     
     $.ajax(url, {
       type: "POST",
       data: {lng: mylocation.lng,
       lat: mylocation.lat}
     }).then(function(res) {
-      console.log(res);
+      $(document.body).html(res);
+    {{!-- window.location.replace(baseURL + url); --}}
     });
+
+
   });
 
 });

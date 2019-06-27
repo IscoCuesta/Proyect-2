@@ -42,10 +42,12 @@
   </div>
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+
 <script>
   // JS for Map
 
-{{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
 var mymap = L.map("mapid").setView([{{lat}},{{lon}}], {{zoom}});
 
 L.tileLayer(
@@ -60,6 +62,10 @@ L.tileLayer(
   }
 ).addTo(mymap);
 
+var UserPin = L.circle([parseFloat({{lat}}), parseFloat({{lon}})], {
+  color: 'red', fillColor: '#f03', fillOpacity: 0.5, radius: 50}).addTo(mymap).bindPopup("You are here").openPopup();
+
+
 {{#each places}}
 var Pin{{this.id}} = L.marker([parseFloat({{this.lat}}), parseFloat({{this.lon}})]).addTo(mymap);
 Pin{{this.id}}.bindPopup("{{this.name}}");
@@ -69,5 +75,3 @@ Pin{{this.id}}.bindPopup("{{this.name}}");
 
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
