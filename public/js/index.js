@@ -120,12 +120,12 @@ $(document).ready(function() {
 });
 
 // Jquery edit button
-$("#btnEdit").on("click", function() {
-  console.log("click");
-  var editable = $("#mainTable").attr("contenteditable");
-  console.log(editable);
-  $("#mainTable").attr("contenteditable", !editable);
-});
+// $("#btnEdit").on("click", function() {
+//   console.log("click");
+//   var editable = $("#mainTable").attr("contenteditable");
+//   console.log(editable);
+//   $("#mainTable").attr("contenteditable", !editable);
+// });
 
 $(".submit").on("click", function() {
   var searchPlace = $("#name")
