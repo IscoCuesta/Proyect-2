@@ -106,6 +106,64 @@ module.exports = function(app) {
 
   });
 
+  // Load example page and pass in an example by id
+  app.post("/location/:lat/:lng", function(req, res) {
+    console.log("-----------------------hit location//")
+    var searchType = req.body.type;
+    console.log(searchType, "search type");
+    if (searchType !== "" && searchType !== "null"){
+      var searchType =  {where: { type: req.body.type },
+      include: [{
+        model: db.Dishes
+      }]} ;
+    }else{
+      var searchType = {
+        include: [{
+          model: db.Dishes
+        }]};
+      }
+      var searchLon = req.body.lng;
+      var searchLat = req.body.lat;
+      db.Places.findAll(searchType).then(function(dbExample) {
+        var arrByDist = [];
+
+        for(var i =0; i<dbExample.length; i++){
+          var dist = Math.sqrt((Math.pow((searchLon-dbExample[i].lon),2))+(Math.pow((searchLat-dbExample[i].lat),2)));
+          arrByDist[i] = {
+            dist: dist,
+            place: dbExample[i]
+          };
+        };
+        
+        function compare( a, b ) {
+          if ( a.dist < b.dist ){
+            return -1;
+          }
+          if ( a.dist > b.dist ){
+            return 1;
+          }
+          return 0;
+        }
+        
+        arrByDist.sort( compare );
+
+        var responseArr = [];
+
+
+        for(var i =0; i<arrByDist.length && i<5; i++){
+          responseArr[i] = arrByDist[i].place;
+        };
+        res.render("place", {
+          places: responseArr,
+          lon: searchLon,
+          lat: searchLat,
+          zoom: 15,
+          ubicacion: "My Location"
+        });
+
+      });
+  });
+
   app.get("/all", function(req, res) {
     db.Places.findAll({}).then(function(dbExamples) {
       res.render("info", {
