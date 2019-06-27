@@ -1,31 +1,53 @@
-.list-group-item {
-  line-height: 2.5;
-}
+
+
 
 body, html {
   background-position: center;
   background-size: cover;
   font-family: sans-serif;
-  zoom: 70%;
+  height: 100%;
+  /* zoom: 100%; */
 }
+
+
 
 .container {
   background-color: white;
   background-repeat: no-repeat;
-  /* height: 100%; */
-  width: 100%;
-  opacity: 0.9;
-  margin: 30px auto;
+  /* width: 100%; */
+  /* opacity: 0.9; */
+  /* margin: 30px auto; */
   max-width: -webkit-fill-available;
 }
 
 body,h1,h5 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
-.bgimg {
-  background-image: url('/w3images/onepage_restaurant.jpg') ;
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
+
+.tragones {
+  font-family: 'Lobster', cursive;
+  color: darkorange;
+  text-align: center;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: 'Courgette', cursive;
+  color: chocolate;
+}
+
+h5{
+  font-size: 1.2rem;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25rem;
 }
 
 .text {
@@ -34,6 +56,89 @@ body, html {height: 100%}
   letter-spacing: 3px;
   text-shadow: 3px 2px rgb(206, 161, 14);
   font-family: "Raleway", sans-serif;
-  font-size: 220px;
+  font-size: 3.5rem;
   font-weight: bold;
 }
+
+.p-barato {
+ font-size: 1rem;
+ font-weight: bold;
+ color: lightblue;
+}
+
+.p-moderado {
+  font-size: 1rem;
+  font-weight: bold;
+  color: lightgreen;
+ }
+
+ .p-caro {
+  font-size: 1rem;
+  font-weight: bold;
+  color: lightcoral;
+ }
+
+#precios {
+  width: 100%;
+  margin: 0 auto;
+  filter: drop-shadow(2px 2px 1px gray);
+}
+
+.block-ribbon{
+  display: inline-block;
+  /* margin-right: 1rem; */
+  /* margin-top: 1rem; */
+}
+
+
+/* Inicia pacman BARATO */
+
+#pacman-barato {
+  width: 0px;
+  height: 0px;
+  border-right: 40px solid transparent;
+  border-top: 40px solid lightblue;
+  border-left: 40px solid lightblue;
+  border-bottom: 40px solid lightblue;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Termina pacman barato */
+
+/* Inicia pacman MODERADO */
+
+#pacman-moderado {
+  width: 0px;
+  height: 0px;
+  border-right: 40px solid transparent;
+  border-top: 40px solid lightgreen;
+  border-left: 40px solid lightgreen;
+  border-bottom: 40px solid lightgreen;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Termina pacman MODERADO */
+
+
+/* Inicia pacman CARO */
+
+#pacman-caro {
+  width: 0px;
+  height: 0px;
+  border-right: 40px solid transparent;
+  border-top: 40px solid lightcoral;
+  border-left: 40px solid lightcoral;
+  border-bottom: 40px solid lightcoral;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Termina pacman CARO */
