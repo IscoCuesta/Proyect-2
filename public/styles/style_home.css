@@ -2,12 +2,11 @@
   line-height: 2.5;
 }
 
-/* body {
-  background-color: blue;
-} */
-
-body {
-  background-image: url(/public/img/Back_Test.jpg);
+body, html {
+  background-position: center;
+  background-size: cover;
+  font-family: sans-serif;
+  zoom: 70%;
 }
 
 .container {
@@ -16,4 +15,25 @@ body {
   /* height: 100%; */
   width: 100%;
   opacity: 0.9;
+  margin: 30px auto;
+  max-width: -webkit-fill-available;
+}
+
+body,h1,h5 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/w3images/onepage_restaurant.jpg') ;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  letter-spacing: 3px;
+  text-shadow: 3px 2px rgb(206, 161, 14);
+  font-family: "Raleway", sans-serif;
+  font-size: 220px;
+  font-weight: bold;
 }

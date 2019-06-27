@@ -7,80 +7,82 @@
   <!-- Mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../styles/styles.css">
   <link rel="stylesheet" href="../../materialize/css/materialize.min.css">
 </head>
 
-<body>
+<body>  
   <div class="container">
 
-    <div class="jumbotron">
-      <h1 class="text-center">Restaurant Information</h1>
-      <hr>
-      <p class="text-center">Introduce the information about the specific place or restaurant</p>
-
-      <div class="text-center">
-        <a href="/place"><button type="button" class="btn btn-lg btn-info">Go to Restaurant list</button></a>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12">
-
-        <div class="card">
-          <div class="card-header">Information of the restaurant 
+    <div class="col s12 m7">
+        <h2 class="header">Restaurant Information</h2>
+        <div class="card horizontal card small #f5f5f5 grey lighten-4">
+          <div class="card-image">
+            <img class="img d-block img-fluid" src="../img/fotos comida/comida2.jpeg" alt="food">
+            <!-- <img class="img d-block img-fluid" src="../img/elote.jpeg" alt="food"> -->
           </div>
-
-          <div class="card-body">
-            <form role="form">
-
-              <div class="form-group">
-                <label for="name">Place/Restaurants Name</label>
-                <input type="text" class="form-control" id="name">
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>Introduce the information about the specific place or restaurant</p>
+            </div>
+            <div class="card-action">
+                <a href="/place">Go to Restaurant list</a>
               </div>
-
-              <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" class="form-control" id="address">
-              </div>
-
-              <div class="form-group">
-                <label for="zone">Zone in </label>
-                <input type="text" class="form-control" id="zone">
-              </div>
-
-              <div class="form-group">
-                <label for="url">URL</label>
-                <input type="text" class="form-control" id="url">
-              </div>
-
-              <div class="form-group">
-                <label for="latitude">Latitude</label>
-                <input type="text" class="form-control" id="lat">
-              </div>
-
-              <div class="form-group">
-                <label for="longitude">Longitude</label>
-                <input type="text" class="form-control" id="long">
-              </div>
-
-              <div class="form-group">
-                <label for="budget">Budget</label>
-                <input type="text" class="form-control" id="budget">
-              </div>
-
-              <div class="form-group">
-                <label for="type">Type of food</label>
-                <input type="text" class="form-control" id="type">
-              </div>
-
-              <button type="submit" class="submit-place btn btn-outline-warning">Submit</button>
-            </form>
           </div>
+        </div>
+      </div>  
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card #f5f5f5 grey lighten-4">
+              <br></br> 
+            <div class="card-body ">
+              <form role="form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" class="form-control" id="address">
+                </div>
+
+                <div class="form-group">
+                  <label for="zone">Zone in Mexico City </label>
+                  <input type="text" class="form-control" id="zone">
+                </div>
+
+                <div class="form-group">
+                  <label for="url">URL</label>
+                  <input type="text" class="form-control" id="url">
+                </div>
+
+                <div class="form-group">
+                  <label for="latitude">Latitude</label>
+                  <input type="text" class="form-control" id="lat">
+                </div>
+
+                <div class="form-group">
+                  <label for="longitude">Longitude</label>
+                  <input type="text" class="form-control" id="long">
+                </div>
+
+                <div class="form-group">
+                  <label for="budget">Budget</label>
+                  <input type="text" class="form-control" id="budget">
+                </div>
+
+                <div class="form-group">
+                  <label for="type">Type of food</label>
+                  <input type="text" class="form-control" id="type">
+                </div>
+              <br></br>
+                <button type="submit" class="btn btn-outline-warning">Submit</button>
+                <br></br>
+              </form>
+            </div>
         </div>
       </div>
     </div>

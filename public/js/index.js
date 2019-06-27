@@ -98,36 +98,46 @@ var handleDeleteBtnClick = function() {
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-
-
 // Carousel
-$(document).ready(function(){
-  $('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: true
-  },setTimeout(autoplay, 4500));
+$(document).ready(function() {
+  $(".carousel.carousel-slider").carousel(
+    {
+      fullWidth: true,
+      indicators: true
+    },
+    setTimeout(autoplay, 4500)
+  );
   function autoplay() {
-    $('.carousel').carousel('next');
+    $(".carousel").carousel("next");
     setTimeout(autoplay, 7500);
-     }
+  }
 });
 
 // Select form
 
-$(document).ready(function(){
-  $('select').formSelect();
+$(document).ready(function() {
+  $("select").formSelect();
+});
 
-  $(".submit").on("click", function(){
-    var searchPlace = $("#name").val().trim();
-    var searchtype = $("#type").val();
-    var url = "/maps/" + searchPlace + "/" + searchtype;
-    console.log(url);
-    $.ajax({
-      type: "GET",
-      url: url
-    }).then(function(resp){
-      $(document.body).html(resp)
-    });
+// Jquery edit button
+$("#btnEdit").on("click", function() {
+  console.log("click");
+  var editable = $("#mainTable").attr("contenteditable");
+  console.log(editable);
+  $("#mainTable").attr("contenteditable", !editable);
+});
 
+$(".submit").on("click", function() {
+  var searchPlace = $("#name")
+    .val()
+    .trim();
+  var searchtype = $("#type").val();
+  var url = "/maps/" + searchPlace + "/" + searchtype;
+  console.log(url);
+  $.ajax({
+    type: "GET",
+    url: url
+  }).then(function(resp) {
+    $(document.body).html(resp);
   });
 });
