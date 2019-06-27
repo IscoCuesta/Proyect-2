@@ -23,6 +23,10 @@
    <button class="btn waves-effect waves-light submit" type="submit" name="action"> Submit
     <i class="material-icons right">send</i>
     </button>
+
+   <button class="btn waves-effect waves-light location" type="submit" name="action"> ByLocation
+    <i class="material-icons right">send</i>
+    </button>
          <br><br>
 
         <h3>Random Places:</h3>
@@ -54,23 +58,24 @@
   </div>
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+
 <script>
   // JS for Map
-
-{{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
 var mymap = L.map("mapid").setView([{{lon}},{{lat}}], {{zoom}});
 
-mymap.locate({setView: true, maxZoom: 16});
+mymap.locate({setView: true, maxZoom: 12});
+var mylocation = []
 
 function onLocationFound(e) {
     var radius = e.accuracy;
-    console.log(e.latlng);
+    mylocation = e.latlng;
 
-    L.marker(e.latlng).addTo(mymap)
-        .bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-    L.circle(e.latlng, radius).addTo(mymap);
-}
+    L.marker(e.latlng, {
+    color: 'red'}).addTo(mymap)
+        .bindPopup("You are here").openPopup();
+};
 function onLocationError(e) {
     alert(e.message);
 }
@@ -95,8 +100,29 @@ var Pin{{this.id}} = L.marker([parseFloat({{this.lat}}), parseFloat({{this.lon}}
 Pin{{this.id}}.bindPopup("{{this.name}}");
 {{/each}}
 
+$(document).ready(function(){
+    console.log(mylocation)
+
+
+  $(".location").on("click", function(event){
+    event.preventDefault();
+    console.log("location click", mylocation)
+    var searchtype = $("#type").val();
+    var baseURL = "http://localhost:3000";
+    var url = "/location";
+    console.log(searchtype);
+    
+    $.ajax(url, {
+      type: "POST",
+      data: {lng: mylocation.lng,
+      lat: mylocation.lat}
+    }).then(function(res) {
+      console.log(res);
+    });
+  });
+
+});
+
 
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>

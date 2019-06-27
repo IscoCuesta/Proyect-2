@@ -23,4 +23,17 @@ $(document).ready(function(){
     var baseURL = "https://muysalsa.herokuapp.com";
     window.location.replace(baseURL + url);
   });
+    
+  // $(".location").on("click", function(){
+  //   var searchtype = $("#type").val();
+  //   var baseURL = "http://localhost:3000";
+  //   var url = "/maps/location/" + searchtype;
+    
+  //   $.ajax(url, {
+  //     type: "get",
+  //     data: e.latlng
+  //   }).then(function() {
+  //     console.log("redirecting", e.latlng);
+  //   });
+  // });
 });

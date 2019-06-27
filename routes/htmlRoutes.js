@@ -30,6 +30,7 @@ module.exports = function(app) {
           model: db.Dishes
         }]
       }).then(function(dbExamples) {
+        // res.json(dbExamples);
         res.render("index", {
           places: dbExamples,
           lon: 19.426,
@@ -106,10 +107,8 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/maps/location", function(req, res) {
-    var APIKEY = process.env.mapbox_id;
-    var searchPlace = req.params.place;
-
+  app.post("/location/:type?", function(req, res) {
+    console.log("-----------------------hit location//")
     var searchType = {};
     if (req.params.type !== undefined && req.params.type !== "null"){
       var searchType =  {where: { type: req.params.type },
@@ -121,13 +120,11 @@ module.exports = function(app) {
         include: [{
           model: db.Dishes
         }]};
-    }
-    var queryURL = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+searchPlace+".json?proximity=-99.1228881,19.426?address="+searchPlace+"&access_token="+APIKEY;
-
-    axios.get(queryURL).then(function(response) {
-      var searchLat = response.data.features[0].center[1];
-      var searchLon = response.data.features[0].center[0];
+      }
+      var searchLat = req.body.lng;
+      var searchLon = req.body.lat;
       console.log(searchType);
+      console.log(searchLat,searchLon);
       db.Places.findAll(searchType).then(function(dbExample) {
         var arrByDist = [];
 
@@ -159,16 +156,13 @@ module.exports = function(app) {
         };
         res.render("place", {
           places: responseArr,
-          lon: searchLon,
-          lat: searchLat,
+          lon: 19.426,
+          lat: -99.1228881,
           zoom: 15,
-          ubicacion: searchPlace
+          ubicacion: "MyLocation"
         });
 
       });
-
-    });
-
   });
 
   app.get("/all", function(req, res) {
