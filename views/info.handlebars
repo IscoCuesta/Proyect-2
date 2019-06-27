@@ -1,17 +1,21 @@
 <div class="container">
-
-        <div class="jumbotron">
-            <h1 class="text-center">Restaurants</h1>
-            <hr>
-            <p class="text-center">List of all the Restaurants</p>
-            <br>
-
-            <div class="text-center">
-                <a href="/list"><button type="button" class="btn btn-lg btn-info">Add a new place</button></a>
+    <div class="col s12 m7">
+      <h2 class="header">Restaurants</h2>
+      <div class="card horizontal card small">
+        <div class="card-image">
+            <img class="img d-block img-fluid" src="../img/tacos.jpeg" alt="taco">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content #f1f8e9 #f5f5f5 grey lighten-4 ">
+                <p>List of all the Restaurants</p>
+            </div>
+            <div class="card-action">
+              <a href="/list">Add a new restaurant</a>
             </div>
         </div>
-
-
+      </div>
+    </div>  
+    <button id="btnEdit">edit</button>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -19,17 +23,25 @@
                     <h4 class="panel-title">Restaurants list</h4>
                 </div>
                 <div class="panel-body" id="tableSection">
-                    <table style="width:100%">
+                    <style>table, th, td {
+                            border: 1px solid black;}
+                            th {
+                            background-color: #eeeeee;
+                            }
+                    </style>
+                    <table contenteditable="true" class="responsive-table centered highlight" id="mainTable" style="width:100%">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Address</th> 
-                            <th>Zone</th>
-                            <th>URL</th>
-                            <th>Longitude</th> 
-                            <th>Latitude</th>
-                            <th>Budget</th>
-                            <th>Type of food</th> 
+                            <tbody>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Address</th> 
+                                <th>Zone</th>
+                                <th>URL</th>
+                                <th>Longitude</th> 
+                                <th>Latitude</th>
+                                <th>Budget</th>
+                                <th>Type of food</th> 
+                            </tbody>
                         </tr>
                         {{#each places}}
                             <tr>

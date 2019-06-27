@@ -2,10 +2,27 @@
   line-height: 2.5;
 }
 
+.header {
+  text-align: center;
+  font-family: "Raleway" sans-serif;
+  font-size: 40px;
+}
 
 #mapid {
   position: fixed;
   z-index: 100 !important;
+}
+body, html {
+  font-family: "Raleway" sans-serif;
+}
+
+.card.horizontal .card-image img {
+  border-radius: 2px 0 0 2px;
+  width: 50% !important  ;
+}
+
+.card-stacked {
+  margin-left: -25%;
 }
 
 .muySalsaText {
@@ -25,10 +42,14 @@
   padding-top: 41% !important 
 }
 
-.jumbotron {
-  background: rgb(214, 182, 111);
+.card-body {
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
+.btn {
+  background-color: #ffab40 !important;
+}
 .barato {
   background: lightblue;
 }
