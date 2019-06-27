@@ -8,7 +8,6 @@
   font-size: 40px;
 }
 
-
 #mapid {
   position: fixed;
   z-index: 100 !important;
@@ -26,6 +25,23 @@ body, html {
   margin-left: -25%;
 }
 
+.muySalsaText {
+  position: fixed;
+  z-index: 101 !important;
+  right: 2rem;
+  color: rgb(255, 255, 255) 
+}
+.placeText {
+  position: fixed;
+  z-index: 101 !important;
+  left: 2rem;
+  color: rgb(205, 218, 162) 
+}
+
+.container {
+  padding-top: 41% !important 
+}
+
 .card-body {
   margin-left: 2%;
   margin-right: 2%;
@@ -34,3 +50,15 @@ body, html {
 .btn {
   background-color: #ffab40 !important;
 }
+.barato {
+  background: lightblue;
+}
+
+.moderado {
+  background: gray;
+  }
+
+.caro {
+  background: lightcoral;
+}
+

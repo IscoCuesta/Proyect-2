@@ -1,31 +1,15 @@
 <div id="home">
 
   <div id="mapid" style="height: 20%; width: 100%; align-self: center"></div>
-<h1 class="muySalsaText">Muy Salsa</h1>
 <br>
+<h1 class="placeText">{{ubicacion}}</h1>
+<h1 class="muySalsaText">Muy Salsa</h1>
   <div class="container containerplace">
     <div class="row">
       <div class="col-8 offset-2">
-        <h3>Type your location.</h3>
-         <input type="text" id="name" class="form-control" required>
-          <br>
-          <div class="input-field col s12">
-    <select id="type">
-      <option value="" disabled selected>Select type of food</option>
-      <option value="Tacos">Tacos</option>
-      <option value="Antojitos">Antojitos</option>
-      <option value="Mariscos">Mariscos</option>
-      <option value="Mexicana">Mexicana</option>
-    </select>
-    
-  </div>
-
-   <button class="btn waves-effect waves-light submit" type="submit" name="action"> Submit
-    <i class="material-icons right">send</i>
-    </button>
          <br><br>
 
-        <h3>Random Places:</h3>
+        <h3>Results:</h3>
 
         {{!-- Start card --}}
 {{#each places}}
@@ -38,16 +22,20 @@
       <p>{{this.address}}</p>
         <a class="btn-floating btn-large waves-effect waves-light red" href={{this.url}}><i class="material-icons">map</i></a>
     </div>
-    <div class="card-reveal">
+    <div class="card-reveal {{this.budget}}">
       <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right">close</i></span>
         <div class="carousel carousel-slider">
           {{#each Dishes}}
             <a class="carousel-item" ><img src={{this.image}}></a>
-            {{/each}} 
-        </div>
+            {{/each}}
+
+    
+  </div>
     </div>
   </div>
 {{/each}}
+
+{{!-- End card --}}
 
       </div>
     </div>
@@ -58,7 +46,7 @@
   // JS for Map
 
 {{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
-var mymap = L.map("mapid").setView([{{lon}},{{lat}}], {{zoom}});
+var mymap = L.map("mapid").setView([{{lat}},{{lon}}], {{zoom}});
 
 L.tileLayer(
   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
