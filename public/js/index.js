@@ -12,10 +12,7 @@ $(document).ready(function(){
      
   // Select form
   $('select').formSelect();
-    
-    $.ajaxPrefilter(function( options, original_Options, jqXHR ) {
-      options.async = true;
-    });
+
     
   $(".submit").on("click", function(){
     var searchPlace = $("#name").val().trim();
