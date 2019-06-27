@@ -60,6 +60,24 @@
 {{!-- var mymap = L.map("mapid").setView([19.426, -99.1228881], 12); --}}
 var mymap = L.map("mapid").setView([{{lon}},{{lat}}], {{zoom}});
 
+mymap.locate({setView: true, maxZoom: 16});
+
+function onLocationFound(e) {
+    var radius = e.accuracy;
+    console.log(e.latlng);
+
+    L.marker(e.latlng).addTo(mymap)
+        .bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+    L.circle(e.latlng, radius).addTo(mymap);
+}
+function onLocationError(e) {
+    alert(e.message);
+}
+
+mymap.on('locationerror', onLocationError);
+mymap.on('locationfound', onLocationFound);
+
 L.tileLayer(
   "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
   {
