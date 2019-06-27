@@ -6,7 +6,7 @@
             <img class="img d-block img-fluid" src="../img/tacos.jpeg" alt="taco">
         </div>
         <div class="card-stacked">
-            <div class="card-content #f1f8e9 light-green lighten-5">
+            <div class="card-content #f1f8e9 #f5f5f5 grey lighten-4 ">
                 <p>List of all the Restaurants</p>
             </div>
             <div class="card-action">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>  
-
+    <button id="btnEdit">edit</button>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -23,17 +23,25 @@
                     <h4 class="panel-title">Restaurants list</h4>
                 </div>
                 <div class="panel-body" id="tableSection">
-                    <table class="responsive-table centered highlight " style="width:100%">
+                    <style>table, th, td {
+                            border: 1px solid black;}
+                            th {
+                            background-color: #eeeeee;
+                            }
+                    </style>
+                    <table contenteditable="true" class="responsive-table centered highlight" id="mainTable" style="width:100%">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Address</th> 
-                            <th>Zone</th>
-                            <th>URL</th>
-                            <th>Longitude</th> 
-                            <th>Latitude</th>
-                            <th>Budget</th>
-                            <th>Type of food</th> 
+                            <tbody>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Address</th> 
+                                <th>Zone</th>
+                                <th>URL</th>
+                                <th>Longitude</th> 
+                                <th>Latitude</th>
+                                <th>Budget</th>
+                                <th>Type of food</th> 
+                            </tbody>
                         </tr>
                         {{#each places}}
                             <tr>

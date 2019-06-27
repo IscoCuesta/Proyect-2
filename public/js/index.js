@@ -117,3 +117,11 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('select').formSelect();
 });
+
+// Jquery edit button
+$("#btnEdit").on("click", function() {
+  console.log("click");
+  var editable = $("#mainTable").attr("contenteditable");
+  console.log(editable);
+  $("#mainTable").attr("contenteditable", !editable);
+});
