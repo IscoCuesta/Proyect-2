@@ -30,6 +30,7 @@ module.exports = function(app) {
           model: db.Dishes
         }]
       }).then(function(dbExamples) {
+        // res.json(dbExamples);
         res.render("index", {
           places: dbExamples,
           lon: 19.426,
