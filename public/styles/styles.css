@@ -6,13 +6,17 @@
 #mapid {
   position: fixed;
   z-index: 100 !important;
+  height: 20%;
+  width: 100%;
+  align-self: center;
 }
 
 .muySalsaText {
   position: fixed;
   z-index: 101 !important;
   right: 2rem;
-  color: rgb(255, 255, 255) 
+  /* color: rgb(255, 255, 255) */
+  color: blueviolet; 
 }
 .placeText {
   position: fixed;
@@ -22,7 +26,7 @@
 }
 
 .container {
-  padding-top: 41% !important 
+  padding-top: 130px !important 
 }
 
 .jumbotron {
@@ -41,3 +45,24 @@
   background: lightcoral;
 }
 
+
+/* Media Queries */
+
+
+@media screen and (max-width: 981px) {
+  .container {
+    padding-top: 320px !important 
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding-top: 140px !important 
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    padding-top: 130px !important 
+  }
+}
