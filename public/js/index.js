@@ -37,17 +37,18 @@ $(document).ready(function(){
 
 
   $("select").formSelect();
-  
-  // Jquery edit button
-  $("#btnEdit").on("click", function() {
-    console.log("click");
-    var editable = $("#mainTable").attr("contenteditable");
-    console.log(editable);
-    $("#mainTable").attr("contenteditable", !editable);
-  });
-  
-  $(".submit").on("click", function() {
-    var searchPlace = $("#name")
+
+// Jquery edit button
+// $("#btnEdit").on("click", function() {
+//   console.log("click");
+//   var editable = $("#mainTable").attr("contenteditable");
+//   console.log(editable);
+//   $("#mainTable").attr("contenteditable", !editable);
+// });
+
+$(".submit").on("click", function() {
+  var searchPlace = $("#name")
+
     .val()
     .trim();
     var searchtype = $("#type").val();

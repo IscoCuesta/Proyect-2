@@ -1,63 +1,86 @@
 <div class="container">
-    <div class="col s12 m7">
-      <h2 class="header">Restaurants</h2>
-      <div class="card horizontal card small">
-        <div class="card-image">
-            <img class="img d-block img-fluid" src="../img/tacos.jpeg" alt="taco">
+  <div class="col s12 m7">
+    <h2 class="header">Restaurants</h2>
+    <div class="card horizontal card small">
+      <div class="card-image">
+        <img class="img d-block img-fluid" src="../img/tacos.jpeg" alt="taco">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content #f1f8e9 #f5f5f5 grey lighten-4 ">
+          <p>List of all the Restaurants</p>
         </div>
-        <div class="card-stacked">
-            <div class="card-content #f1f8e9 #f5f5f5 grey lighten-4 ">
-                <p>List of all the Restaurants</p>
-            </div>
-            <div class="card-action">
-              <a href="/list">Add a new restaurant</a>
-            </div>
+        <div class="card-action">
+          <a href="/newPlace">Add a new restaurant</a>
+          <a href="/newdish">Add a new dish</a>
         </div>
       </div>
-    </div>  
-    <button id="btnEdit">edit</button>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">Restaurants list</h4>
-                </div>
-                <div class="panel-body" id="tableSection">
-                    <style>table, th, td {
-                            border: 1px solid black;}
-                            th {
-                            background-color: #eeeeee;
-                            }
-                    </style>
-                    <table contenteditable="true" class="responsive-table centered highlight" id="mainTable" style="width:100%">
-                        <tr>
-                            <tbody>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Address</th> 
-                                <th>Zone</th>
-                                <th>URL</th>
-                                <th>Longitude</th> 
-                                <th>Latitude</th>
-                                <th>Budget</th>
-                                <th>Type of food</th> 
-                            </tbody>
-                        </tr>
-                        {{#each places}}
-                            <tr>
-                                <td>{{this.id}}</td>
-                                <td>{{this.name}}</td>
-                                <td>{{this.address}}</td> 
-                                <td>{{this.zone}}</td>
-                                <td>{{this.url}}</td>
-                                <td>{{this.lon}}</td> 
-                                <td>{{this.lat}}</td>
-                                <td>{{this.budget}}</td>
-                                <td>{{this.type}}</td> 
-                            </tr>
-                        {{/each}}
-                    </table>
-                </div>
-            </div>
-        </div>
     </div>
+    {{!-- <button id="btnEdit">edit</button> --}}
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Restaurants list</h4>
+          </div>
+          <div class="panel-body" id="tableSection">
+            <style>
+              table,
+              th,
+              td {
+                border: none;
+              }
+
+              th {
+                background-color: #eeeeee;
+              }
+            </style>
+            {{!-- contenteditable="true"  --}}
+            <table class="responsive-table centered highlight" id="mainTable" style="width:100%">
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Zone</th>
+                <th>URL</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Budget</th>
+                <th>Type of food</th>
+                {{!-- <th></th> --}}
+              </tr>
+              {{#each places}}
+              <tr id="{{this.id}}">
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.zone}}</td>
+                <td>{{this.url}}</td>
+                <td>{{this.lon}}</td>
+                <td>{{this.lat}}</td>
+                <td>{{this.budget}}</td>
+                <td>{{this.type}}</td>
+                {{!-- <td><i data-id="{{this.id}}" data-name="{{this.name}}" class="delete material-icons small">cancel</i></td> --}}
+              </tr>
+              {{/each}}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(".delete").on("click", function (event) {
+    var thisId = $(this).data("id")
+    var thisName = $(this).data("name")
+    console.log(thisId);
+    // Send ajax request for deleting restaurants
+    $.ajax("/RedPill/places/" + thisId, {
+      type: "DELETE",
+    }).then(function () {
+      console.log("You just deleted " + thisName);
+      $("#" + thisId).remove()
+    });
+  });
+</script>

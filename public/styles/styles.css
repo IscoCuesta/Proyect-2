@@ -77,6 +77,13 @@ h3 {
   width: 50rem;
 }
 
+.material-icons {
+  color: #ffab40;
+}
+
+.delete {
+  cursor: pointer;
+}
 
 
 /* Media Queries */
