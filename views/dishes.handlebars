@@ -1,35 +1,37 @@
-
   <div class="container">
-
-    <div class="jumbotron">
-      <h1 class="text-center">Dish Information</h1>
-      <hr>
-      <p class="text-center">Enter the information about the dish</p>
-
-      <div class="text-center">
-        <a href="/place"><button type="button" class="btn btn-lg btn-info">Go to Restaurant list</button></a>
+    <div class="col s12 m7">
+      <h2 class="header">Dish Information</h2>
+            <div class="card horizontal card small">
+        <div class="card-image">
+            <img class="img d-block img-fluid" src="../img/fotos comida/noddles.jpeg" alt="taco">
+        </div>
+        <div class="card-stacked">
+            <div class="card-content #f1f8e9 #f5f5f5 grey lighten-4 ">
+                <p>Enter the information about the a specific dish</p>
+            </div>
+            <div class="card-action">
+              <a href="/newPlace">Add a new restaurant</a>
+             <a href="/all">Go to Restaurant list</a>
+            </div>
+        </div>
       </div>
-
     </div>
 
+
     <div class="row">
-      <div class="col-lg-12">
-
-        <div class="card">
-          <div class="card-header">Information of the dish
-          </div>
-
-          <div class="card-body">
-            <form role="form">
+      <div class="col s12">
+          <div class="card #f5f5f5 grey lighten-4">
+              <br></br> 
+            <div class="card-body">
+              <form role="form"></form>
+              <div class="form-group">
+                  <label for="name">Name of the dish</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
 
               <div class="form-group">
-                <label for="name">Name of the dish</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-
-              <div class="form-group">
-                <label for="image-url">Paste dish image url</label>
-                <input type="text" class="form-control" id="image-url">
+                  <label for="image-url">Paste dish image url</label>
+                  <input type="text" class="form-control" id="image-url">
               </div>
 
               <div class="form-group">
@@ -42,6 +44,7 @@
               </div>
 
               <button type="submit" class="submit-dish btn btn-outline-warning">Submit</button>
+              <br><br>
             </form>
           </div>
         </div>

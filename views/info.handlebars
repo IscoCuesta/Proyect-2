@@ -10,36 +10,33 @@
           <p>List of all the Restaurants</p>
         </div>
         <div class="card-action">
-          <a href="/list">Add a new restaurant</a>
+          <a href="/newPlace">Add a new restaurant</a>
+          <a href="/newdish">Add a new dish</a>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">Restaurants list</h4>
-        </div>
-        <div class="panel-body" id="tableSection">
-          <style>
-            table,
-            th,
-            td {
-              border: none;
-            }
+    {{!-- <button id="btnEdit">edit</button> --}}
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">Restaurants list</h4>
+          </div>
+          <div class="panel-body" id="tableSection">
+            <style>
+              table,
+              th,
+              td {
+                border: none;
+              }
 
-            th {
-              background-color: #eeeeee;
-            }
-
-            td {
-              background-color: #ffffff;
-            }
-          </style>
-          <table class="list responsive-table centered highlight" id="mainTable" style="width:100%">
-            <tr>
-              <tbody>
+              th {
+                background-color: #eeeeee;
+              }
+            </style>
+            {{!-- contenteditable="true"  --}}
+            <table class="responsive-table centered highlight" id="mainTable" style="width:100%">
+              <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Address</th>
@@ -50,23 +47,23 @@
                 <th>Budget</th>
                 <th>Type of food</th>
                 {{!-- <th></th> --}}
-              </tbody>
-            </tr>
-            {{#each places}}
-            <tr id="{{this.id}}">
-              <td>{{this.id}}</td>
-              <td>{{this.name}}</td>
-              <td>{{this.address}}</td>
-              <td>{{this.zone}}</td>
-              <td>{{this.url}}</td>
-              <td>{{this.lon}}</td>
-              <td>{{this.lat}}</td>
-              <td>{{this.budget}}</td>
-              <td>{{this.type}}</td>
-              {{!-- <td><i data-id="{{this.id}}" data-name="{{this.name}}" class="delete material-icons small">cancel</i></td> --}}
-            </tr>
-            {{/each}}
-          </table>
+              </tr>
+              {{#each places}}
+              <tr id="{{this.id}}">
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.zone}}</td>
+                <td>{{this.url}}</td>
+                <td>{{this.lon}}</td>
+                <td>{{this.lat}}</td>
+                <td>{{this.budget}}</td>
+                <td>{{this.type}}</td>
+                {{!-- <td><i data-id="{{this.id}}" data-name="{{this.name}}" class="delete material-icons small">cancel</i></td> --}}
+              </tr>
+              {{/each}}
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -83,7 +80,7 @@
       type: "DELETE",
     }).then(function () {
       console.log("You just deleted " + thisName);
-      $("#"+ thisId).remove()
+      $("#" + thisId).remove()
     });
   });
 </script>
