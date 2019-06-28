@@ -7,7 +7,7 @@ const Op = Sequelize.Op;
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.render("home")
+    res.sendFile(path.join(__dirname + '/../public/home.html/'));
   });
 
   // Load maps 
