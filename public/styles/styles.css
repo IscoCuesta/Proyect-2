@@ -66,6 +66,13 @@ body, html {
   background: lightcoral;
 }
 
+.material-icons {
+  color: #ffab40;
+}
+
+.delete {
+  cursor: pointer;
+}
 
 /* Media Queries */
 

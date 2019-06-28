@@ -23,10 +23,8 @@ module.exports = function(app) {
   });
 
   // Delete an example by id
-  app.delete("/api/places/:id", function(req, res) {
-    db.Places.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
+  app.delete("/RedPill/places/:id", function(req, res) {
+    db.Places.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });
   });

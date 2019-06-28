@@ -42,8 +42,9 @@
                   {{/each}}
                 </select>
               </div>
-              <button type="submit" class="submitDish btn btn-outline-warning">Submit</button>
-             <br></br>
+
+              <button type="submit" class="submit-dish btn btn-outline-warning">Submit</button>
+              <br><br>
             </form>
           </div>
         </div>
@@ -53,7 +54,7 @@
   </div>
   <script type="text/javascript">
 
-    $(".submitDish").on("click", function (event) {
+    $(".submit-dish").on("click", function (event) {
       event.preventDefault();
 
       var newDish = {
