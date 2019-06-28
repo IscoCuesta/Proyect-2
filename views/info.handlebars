@@ -10,12 +10,13 @@
                 <p>List of all the Restaurants</p>
             </div>
             <div class="card-action">
-              <a href="/list">Add a new restaurant</a>
-            </div>
+                <a href="/newPlace">Add a new restaurant</a>
+                <a href="/newdish">Add a new dish</a>
+           </div>
         </div>
       </div>
     </div>  
-    <button id="btnEdit">edit</button>
+    {{!-- <button id="btnEdit">edit</button> --}}
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -29,9 +30,9 @@
                             background-color: #eeeeee;
                             }
                     </style>
-                    <table contenteditable="true" class="responsive-table centered highlight" id="mainTable" style="width:100%">
+                    {{!-- contenteditable="true"  --}}
+                    <table class="responsive-table centered highlight" id="mainTable" style="width:100%">
                         <tr>
-                            <tbody>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Address</th> 
@@ -41,7 +42,6 @@
                                 <th>Latitude</th>
                                 <th>Budget</th>
                                 <th>Type of food</th> 
-                            </tbody>
                         </tr>
                         {{#each places}}
                             <tr>
