@@ -33,7 +33,15 @@ body, html {
   z-index: 101 !important;
   right: 2rem;
   /* color: rgb(255, 255, 255) */
-  color: blueviolet; 
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+  text-shadow: 3px 2px rgb(206, 161, 14);
+  font-size: 3rem; 
+}
+
+h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2.5rem;
 }
 .placeText {
   position: fixed;
@@ -43,7 +51,7 @@ body, html {
 }
 
 .container {
-  padding-top: 130px !important 
+  padding-top: 120px !important 
 }
 
 .card-body {
@@ -56,30 +64,49 @@ body, html {
 }
 .barato {
   background: lightblue;
+  width: 50rem;
 }
 
 .moderado {
-  background: gray;
+  background: lightgreen;
+  width: 50rem;
   }
 
 .caro {
   background: lightcoral;
+  width: 50rem;
 }
 
 .material-icons {
-  color: #ffab40;
+  color: white;
 }
 
 .delete {
   cursor: pointer;
 }
 
+
 /* Media Queries */
 
 
-@media screen and (max-width: 981px) {
+
+@media screen and (max-width: 320px) {
   .container {
-    padding-top: 320px !important 
+    padding-top: 130px !important 
+  }
+  .barato {
+    background: lightblue;
+    width: 100%;
+  }
+  
+  .moderado {
+    background: lightgreen;
+    width: 100%;
+  }
+  
+  .caro {
+    background: lightcoral;
+    width: 100%;
   }
 }
 
@@ -87,10 +114,38 @@ body, html {
   .container {
     padding-top: 140px !important 
   }
+  .barato {
+    background: lightblue;
+    width: 100%;
+  }
+  
+  .moderado {
+    background: lightgreen;
+    width: 100%;
+  }
+  
+  .caro {
+    background: lightcoral;
+    width: 100%;
+  }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 985px) {
   .container {
-    padding-top: 130px !important 
+    padding-top: 44% !important 
+  }
+  .barato {
+    background: lightblue;
+    width: 100%;
+  }
+
+  .moderado {
+    background: lightgreen;
+    width: 100%;
+    }
+
+  .caro {
+    background: lightcoral;
+    width: 100%;
   }
 }

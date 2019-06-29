@@ -5,6 +5,8 @@
      <!--Import Google Icon Font-->
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <!--Import materialize.css-->
+     <link href="https://fonts.googleapis.com/css?family=Courgette|Lobster&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,24 +16,59 @@
     <title>Muy salsa Home</title>
 </head>
 
-<body  background="/img/fotos comida/tacos2.jpeg" alt="food">  
-  <div class="text">MUY SALSA</div>
-  <div class="section no-pad-bot" id="index-banner">
+<body id="bgImg">  
+  <!-- <div class="text">MUY SALSA</div> -->
+  <div class="section no-pad-bot">
     <div class="container">
-      <br><br>
-      <h1 class="header center orange-text">Somos tragones conocedores</h1>
+      <br>
+        <img src="/img/Muy_Salsa.svg" alt="Muy Salsa">
+      
+      <h1 class="tragones">Somos tragones conocedores</h1>
       <div class="row center">
         <h5 class="header col s12 light">Te recomendamos lo verdaderamente bueno para comer cerca de tu zona</h5>
+        <h2 class="headInstruc">¿Cómo funciona?</h2>
+        <h5 class="header col s12 light">Fácil, ve al mapa y busca por localidad o platillo y deja que la vista te enamore</h5>
+        <h2 class="headInstruc">Escala de precios</h2>
+        <div class="row" id="precios">
+          <div class="block-ribbon">
+            <div id="pacman-barato"></div>
+            <p class="p-barato">Barato</p>
+          </div>
+          <div class="block-ribbon">
+            <div id="pacman-moderado"></div>
+            <p class="p-moderado">Moderado</p>
+          </div>
+          <div class="block-ribbon">
+            <div id="pacman-caro"></div>
+            <p class="p-caro">Caro</p>
+          </div>    
+        </div>
       </div>
+    </div>
       <div class="row center">
-        <a href="./maps" id="goMap" class="btn-large waves-effect  green darken-4">Find a restaurant</a>
+        <a href="/maps" id="goMap" class="btn-large waves-effect amber darken-2"><strong>Find a restaurant</strong></a>
       </div>
       <br><br>
-    </div>
+  </div>
   </div>
 
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+
+    var images = ['/img/fotos_comida/tacos2.jpeg', '/img/fotos_comida/carnes.jpeg',
+                  '/img/fotos_comida/japonesa.jpeg', '/img/fotos_comida/desayuno.jpeg',
+                  '/img/fotos_comida/pizza.jpeg', '/img/fotos_comida/parrilla.jpeg',
+                  '/img/fotos_comida/koreano.jpeg', '/img/fotos_comida/mariscos.jpeg',
+                  '/img/fotos_comida/rest.jpeg', '/img/fotos_comida/chiles.jpeg'];
+
+    var randomImage = Math.floor((Math.random() * 10) + 1);
+     
+    $(document).ready(function(){
+      $("body").css("background-image", "url('" + images[randomImage] +"')");
+    })
+  </script>
 
 </body>
 </html>
