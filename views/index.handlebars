@@ -16,7 +16,7 @@
     
       </div>
 
-      <button class="btn waves-effect waves-light location red" type="submit" name="action"> Nearby Places
+      <button class="btn btn-large waves-effect waves-light location red" type="submit" name="action"> Nearby Places
         <i class="material-icons right">send</i>
       </button>
         <br><br>
@@ -32,10 +32,10 @@
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">{{this.name}}<i class="material-icons right">more_vert</i></span>
               <p>{{this.address}}</p>
-                <a class="btn-floating btn-large waves-effect waves-light red" href={{this.url}}><i class="material-icons">map</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red" href={{this.url}}><i class="material-icons large">map</i></a>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right">close</i></span>
+              <span class="card-title grey-text text-darken-4">{{this.name}}<i class="material-icons right large">close</i></span>
                 <div class="carousel carousel-slider">
                   {{#each Dishes}}
                     <a class="carousel-item" ><img src={{this.image}}></a>
